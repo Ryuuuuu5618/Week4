@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📘 Docker + VSCode DevContainer 기반 C 개발 환경 구축 가이드
 
 이 문서는 **Windows**와 **macOS** 사용자가 Docker와 VSCode DevContainer 기능을 활용하여 C 개발 및 디버깅 환경을 빠르게 구축할 수 있도록 도와줍니다.
@@ -144,3 +145,14 @@ git push -u origin main
 - 어떤 운영체제에서든 동일한 환경으로 개발 가능  
 - VSCode 내에서 코드 작성, 컴파일, 디버깅까지 한 번에 가능
 ---
+=======
+The practicing sequence could be `Linked List` -> `Stack n Queue` -> `Binary Tree` -> `Binary Search Tree`.
+
+
+Approperiate `steps` to do each question: **Read the question's requirement in question sheet -> Find the corresponding main frame and copy it to your C compiler, i.e. Code::Block -> Finish the function part -> Try compiling and input some test cases.**
+***
+
+The main frames of each question are provided such that the function part is left empty for you to write and fill in the blank to complete the question. Basic functionalities like `POP/PUSH/DEQUEUE/ENQUEUE/REMOVE_LINKED_NODE/FIND_LINKED_NODE` are already provided in the main frame. You don't need to write these basic functions.
+
+These questions only illustrate some basis of Data Structure. However, they can be your keys of the door to new world of CS. After finishing these questions, you may have a brief view of what the Data Structure is.
+>>>>>>> afb0289928e5ee6fb3822157feefb8a70da1d0c8
