@@ -104,7 +104,67 @@ int main()
 ////////////////////////////////////////////////////////////
 int balanced(char *expression)
 {
-/* add your code here */
+	if (expression == NULL)
+	{
+		return 1;
+	}
+
+	// 문자열 길이 구하기
+	int count = 0;
+	// 문자를 담을 스택
+	Stack s;
+	s.ll.head = NULL;
+ 	s.ll.size = 0;
+
+	Stack *ts = &s;
+
+	while (expression[count] != '\0')
+	{
+		char text = expression[count];
+
+		if (ts->ll.size == 0)
+		{
+			push(ts, text);
+			count++;
+			continue;
+		}
+
+		switch (text)
+		{
+			case ')':
+				if (peek(ts) == '(')
+					pop(ts);
+				else
+					return 1;
+				break;
+			case '}':
+				if (peek(ts) == '{')
+					pop(ts);
+				else
+					return 1;
+				break;
+			case ']':
+				if (peek(ts) == '[')
+					pop(ts);
+				else
+					return 1;
+				break;			
+			default:
+				push(ts, text);
+				break;
+		}
+
+		count++;
+	}
+
+	if (ts->ll.size == 0)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
 }
 
 ////////////////////////////////////////////////////////////

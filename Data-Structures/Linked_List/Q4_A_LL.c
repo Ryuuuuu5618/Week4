@@ -86,8 +86,80 @@ int main()
 
 void moveEvenItemsToBack(LinkedList *ll)
 {
-	/* add your code here */
-}
+	if (ll->head == NULL || ll->size <= 1)
+	{
+		return;
+	}
+
+	// 마지막 인덱스 찾기
+	ListNode *tail = ll->head;
+	while (tail->next != NULL)
+	{
+		tail = tail->next;
+	}
+	tail->next = NULL;
+
+	int orginTail = tail->item;
+
+	ListNode *pre = ll->head;
+	ListNode *cur;
+
+	bool isTail = false;
+
+	while (!isTail)
+	{
+		// 헤드가 짝수인 경우
+		if (ll->head->item % 2 == 0)
+		{
+			if (ll->head->item == orginTail)
+			{
+				isTail = true;
+			}
+
+			ListNode *new_node = ll->head;
+			
+			ll->head = ll->head->next;
+			
+			tail->next = new_node;
+			tail = tail->next;
+			tail->next = NULL;
+
+			pre = ll->head;
+
+			continue;
+		}
+		
+		cur = pre->next;
+
+		if (cur->item == orginTail)
+		{
+			isTail = true;
+		}
+
+		if (cur->item == orginTail)
+		{
+			isTail = true;
+		}
+
+		// 인덱스 1번부터 조회
+		if (cur->item % 2 == 0)
+		{
+			pre->next = pre->next->next;
+
+			tail->next = cur;
+			tail = tail->next;
+			tail->next = NULL;
+		}
+		else if (pre->next != NULL)
+		{
+			pre = pre->next;
+		}
+		else
+		{
+			return;
+		}
+	}
+} 
 
 ///////////////////////////////////////////////////////////////////////////////////
 

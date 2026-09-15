@@ -57,6 +57,7 @@ int main()
 		printf("Please input your choice(1/2/0): ");
 		scanf("%d", &c);
 
+
 		switch (c)
 		{
 		case 1:
@@ -87,7 +88,23 @@ int main()
 
 void RecursiveReverse(ListNode **ptrHead)
 {
-	/* add your code here */
+	// 정렬할 게 없는 경우
+	if ((*ptrHead) == NULL || (*ptrHead)->next == NULL)
+	{
+		return;
+	}
+    
+	ListNode *head = *ptrHead;
+	ListNode *headNext = (*ptrHead)->next;
+	
+	RecursiveReverse(&(head->next));
+	// 헤드가 될 노드 미리 저장
+	ListNode *newHead = head->next;
+	// 헤드 가장 끝으로 이동
+	headNext->next = head;
+	head->next =  NULL;
+	// 헤드 재정의 -> 재귀 때문에 ptrHead의 값이 달라지기 때문
+	*ptrHead = newHead;
 }
 
 //////////////////////////////////////////////////////////////////////////////////

@@ -112,7 +112,27 @@ int main()
 
 void reverse(Queue *q)
 {
-/* add your code here */
+	if (q == NULL || q->ll.size < 2)
+	{
+		return;
+	}
+
+	Stack s;
+	s.ll.head = NULL;
+	s.ll.size = 0;
+	s.ll.tail = NULL;
+
+	Stack *ts = &s;
+
+	while (q->ll.head != NULL)
+	{
+		push(ts, dequeue(q));
+	}
+	
+	while (ts->ll.head != NULL)
+	{
+		enqueue(q, pop(ts));
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
